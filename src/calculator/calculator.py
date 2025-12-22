@@ -5,6 +5,7 @@ A simple calculator module with basic arithmetic operations.
 
 class InvalidInputException(Exception):
     """Exception raised when input values are outside the valid range."""
+
     pass
 
 
@@ -22,12 +23,7 @@ class Calculator:
                     f"[{self.MIN_VALUE}, {self.MAX_VALUE}]"
                 )
 
-
-        
-    
     """Calculator class providing basic arithmetic operations."""
-
-
 
     def add(self, a, b):
         """Add two numbers.
@@ -42,7 +38,7 @@ class Calculator:
         Raises:
             InvalidInputException: If any input is outside valid range
         """
-        self._validate_input(a, b) 
+        self._validate_input(a, b)
         return a + b
 
     def subtract(self, a, b):
@@ -58,7 +54,7 @@ class Calculator:
         Raises:
             InvalidInputException: If any input is outside valid range
         """
-        self._validate_input(a, b) 
+        self._validate_input(a, b)
         return a - b
 
     def multiply(self, a, b):
@@ -74,7 +70,7 @@ class Calculator:
         Raises:
             InvalidInputException: If any input is outside valid range
         """
-        self._validate_input(a, b) 
+        self._validate_input(a, b)
         return a * b
 
     def divide(self, a, b):
@@ -91,12 +87,7 @@ class Calculator:
             InvalidInputException: If any input is outside valid range
             ValueError: If b is zero
         """
-        self._validate_input(a, b) 
+        self._validate_input(a, b)
         if b == 0:
             raise ValueError("Cannot divide by zero")
         return a / b
-
-
-
-
-

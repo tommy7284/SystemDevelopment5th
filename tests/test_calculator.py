@@ -5,6 +5,7 @@ Test suite for the Calculator class.
 import pytest
 from calculator.calculator import Calculator, InvalidInputException
 
+
 class TestAddition:
     """Tests for the add method."""
 
@@ -123,7 +124,7 @@ class TestSubtraction:
 
         # Assert
         assert result == expected
-    
+
     def test_subtract_negative_numbers(self):
         """Test subtracting negative numbers."""
         calc = Calculator()
@@ -153,7 +154,7 @@ class TestMultiplication:
 
         # Assert
         assert result == expected
-        
+
     def test_multiply_by_zero(self):
         """Test multiplication by zero."""
         calc = Calculator()
@@ -183,21 +184,23 @@ class TestDivision:
 
         # Assert
         assert result == expected
-    
+
     def test_divide_by_zero(self):
         """Test dividing by zero raises standard ZeroDivisionError."""
         # Note: Depending on implementation, this might raise ValueError or ZeroDivisionError
         calc = Calculator()
         with pytest.raises(ValueError):
-             calc.divide(10, 0)
-            
+            calc.divide(10, 0)
+
     def test_divide_result_float(self):
         """Test division resulting in float."""
         calc = Calculator()
         assert calc.divide(5, 2) == 2.5
 
+
 class TestExceptions:
     """Tests for invalid input exceptions based on Slide 35."""
+
     def test_add_max_value(self):
         """境界値 (1,000,000) が正常に処理されるかテスト"""
         calc = Calculator()
@@ -207,7 +210,7 @@ class TestExceptions:
         """境界値 (-1,000,000) が正常に処理されるかテスト"""
         calc = Calculator()
         assert calc.add(-1000000, 0) == -1000000
-        
+
     def test_input_too_large(self):
         """Test that input larger than MAX_VALUE raises InvalidInputException."""
         calc = Calculator()
@@ -221,7 +224,7 @@ class TestExceptions:
         # -1,000,000 is valid, -1,000,001 should fail
         with pytest.raises(InvalidInputException):
             calc.add(-1000001, 1)
-            
+
     def test_subtract_input_too_large(self):
         """Test subtraction with invalid input."""
         calc = Calculator()
@@ -263,7 +266,7 @@ class TestExceptions:
         calc = Calculator()
         with pytest.raises(InvalidInputException):
             calc.divide(1, 1000001)
-            
+
     def test_exception_message(self):
         """Test that the exception message contains correct values."""
         calc = Calculator()
